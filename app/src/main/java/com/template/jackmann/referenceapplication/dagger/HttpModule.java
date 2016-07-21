@@ -1,4 +1,4 @@
-package com.template.jackmann.referenceapplication.http;
+package com.template.jackmann.referenceapplication.dagger;
 
 import com.template.jackmann.referenceapplication.HttpApi;
 import com.template.jackmann.referenceapplication.dagger.scope.ApplicationScope;
@@ -74,7 +74,9 @@ public class HttpModule {
         // network interceptor provides headers for authenticated users
         builder.addNetworkInterceptor(headersInterceptor);
 
-        return new Retrofit.Builder().baseUrl(BASE_URL)
+        return new Retrofit.Builder()
+                // TODO: add this back when calls are from base url
+                //.baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(JacksonConverterFactory.create())
                 .client(builder.build())
