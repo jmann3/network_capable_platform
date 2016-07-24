@@ -2,7 +2,8 @@ package com.template.jackmann.referenceapplication.rxJava;
 
 import android.support.annotation.NonNull;
 
-import com.vts.vtsandroid.http.AuthenticatedRequestErrorHandler;
+
+import com.template.jackmann.referenceapplication.http.AuthenticatedRequestErrorHandler;
 
 import javax.inject.Inject;
 import javax.inject.Named;

@@ -4,13 +4,13 @@ apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
-
     defaultConfig {
         applicationId "com.template.jackmann.referenceapplication"
         minSdkVersion 19
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -18,14 +18,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        modern {
+            minSdkVersion 21
+        }
+        legacy {
+            minSdkVersion 19
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
-
     compile 'com.android.support:recyclerview-v7:24.0.0'
     compile 'com.android.support:cardview-v7:24.0.0'
     compile 'com.android.support:support-v4:24.0.0'
@@ -38,12 +45,12 @@ dependencies {
     // timber for logging
     compile 'com.jakewharton.timber:timber:4.1.2'
     // butterknife for view binding
-    apt     'com.jakewharton:butterknife-compiler:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.jakewharton:butterknife:8.0.1'
     // autovalue for parcelable impl generation
     provided 'com.google.auto.value:auto-value:1.2'
-    apt      'com.google.auto.value:auto-value:1.2'
-    apt      'com.ryanharter.auto.value:auto-value-parcel:0.2.1'
+    apt 'com.google.auto.value:auto-value:1.2'
+    apt 'com.ryanharter.auto.value:auto-value-parcel:0.2.1'
     // dagger 2 for dependency injection
     apt 'com.google.dagger:dagger-compiler:2.5'
     compile 'com.google.dagger:dagger:2.5'

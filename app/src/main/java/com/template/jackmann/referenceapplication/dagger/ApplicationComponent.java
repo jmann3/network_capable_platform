@@ -4,6 +4,7 @@ import android.content.res.Resources;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.template.jackmann.referenceapplication.application.ReferenceApp;
+
 import com.template.jackmann.referenceapplication.dagger.scope.ApplicationScope;
 import com.template.jackmann.referenceapplication.http.AuthenticatedRequestErrorHandler;
 

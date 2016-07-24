@@ -32,7 +32,9 @@ public class ReferenceApp extends Application{
 
     @NonNull
     ApplicationComponent setupComponents () {
-        return DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
+        return DaggerApplicationComponent.builder()
+                .applicationModule(new ApplicationModule(this))
+                .build();
     }
 
     @NonNull

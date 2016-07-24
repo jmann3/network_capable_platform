@@ -1,7 +1,7 @@
 package com.template.jackmann.referenceapplication.dagger;
 
-import com.template.jackmann.referenceapplication.HttpApi;
 import com.template.jackmann.referenceapplication.dagger.scope.ApplicationScope;
+import com.template.jackmann.referenceapplication.http.HttpApi;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ import timber.log.Timber;
 @Module
 public class HttpModule {
 
-    private static final String BASE_URL = "";
+    private static final String BASE_URL = "https://data.cityofchicago.org";
 
     @Provides
     public CompositeSubscription provideCompositeSubscription() {
@@ -72,11 +72,11 @@ public class HttpModule {
         builder.addInterceptor(loggingInterceptor);
 
         // network interceptor provides headers for authenticated users
-        builder.addNetworkInterceptor(headersInterceptor);
+        //builder.addNetworkInterceptor(headersInterceptor);
 
         return new Retrofit.Builder()
                 // TODO: add this back when calls are from base url
-                //.baseUrl(BASE_URL)
+                .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(JacksonConverterFactory.create())
                 .client(builder.build())
